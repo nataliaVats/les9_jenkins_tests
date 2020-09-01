@@ -10,15 +10,16 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 
-class GoogleTests extends TestBase {
+class GoogleTests() {
 
     @Test
-    void positiveSelenideSearchTest() {
+    void selenideSearchTest() {
+        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         // Open google
         open("https://google.com");
 
         // Type Selenide in search
-        $(byName("q")).setValue("Selenide").pressEnter(); // кнопка логина
+        $(byName("q")).setValue("Selenide").pressEnter(); // login button
 
         // Make sure the Selenide appears in search results
         $("#rso").shouldHave(text("selenide.org"));
