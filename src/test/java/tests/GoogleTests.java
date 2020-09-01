@@ -22,6 +22,6 @@ class GoogleTests() {
         $(byName("q")).setValue("Selenide").pressEnter(); // login button
 
         // Make sure the Selenide appears in search results
-        $("#rso").shouldHave(text("selenide.org"));
+        $(".search-results").shouldHave(text("ru.selenide.org"));
     }
 }
